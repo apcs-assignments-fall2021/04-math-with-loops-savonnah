@@ -16,9 +16,11 @@ public class MyMain {
     // different from the value Math.E
     public static double calculateE() {
         double sum = 0;
-        for (int i=1; i<=1000; i++){   //(sum==Math.E-0.0001 || sum==Math.E+0.0001)
+        int i = 0;
+        while(Math.abs(sum-Math.E)>0.0001){   //(sum==Math.E-0.0001 || sum==Math.E+0.0001)
             double e = (1/factorial(i));
             sum+=e;
+            i++;
             if (e == 0){
                 break;
             }
@@ -30,7 +32,7 @@ public class MyMain {
     public static double babylonian(double x) {
         double n = x;
         double m = 1;
-        //double div = x/n;     // I dont get what this div does becuase did not work when i tried it.
+
         while (n-m > 0.00001){
             n = (n+m)/2;
             m = x/n;
